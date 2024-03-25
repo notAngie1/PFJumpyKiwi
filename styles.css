@@ -1,0 +1,87 @@
+@import url('https://fonts.cdnfonts.com/css/tourney');
+@import url('https://fonts.cdnfonts.com/css/nabla');
+@import url('https://fonts.cdnfonts.com/css/hiskyflipper');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family:'HISKYFLIPPERHI', sans-serif;
+    background-color: #70c5ce; /* Color de fondo inspirado en el cielo de Flappy Bird */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #fff;
+    font-family: 'Tourney', sans-serif;
+    font-size: 4rem;
+}
+
+h2 {
+    font-family: 'Nabla', sans-serif;
+    font-size: 6rem;
+ }
+
+.button {
+    display: inline-block;
+    background-color: #4CAF50; /* Color de fondo verde para el botón */
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 50px 15px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #45a049; /* Cambio de color al pasar el cursor sobre el botón */
+}
+
+.imgContainer {
+    width: 150px; /* Ancho de la imagen */
+    height: 150px; /* Alto de la imagen */
+    background-image: url('img/bird1.png'); /* Imagen inicial */
+    background-size: cover;
+    animation: animacion-imagen 0.8s infinite; /* Duración de la animación y repetición infinita */
+}
+
+@keyframes animacion-imagen {
+    0% {
+        background-image: url('img/bird1.png'); /* Imagen inicial */
+    }
+    50% {
+        background-image: url('img/bird2.png'); /* Imagen a mitad de la animación */
+    }
+    100% {
+        background-image: url('img/bird1.png'); /* Imagen al final de la animación */
+    }
+}
