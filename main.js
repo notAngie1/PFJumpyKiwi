@@ -14,41 +14,30 @@ const backMain3 = document.getElementById('returnButton3').addEventListener('cli
 let juego = new Juego()
 
 function mainMenu() {
-
     //menu de opciones
     opcStart.addEventListener("click", mainGame);
     opcScore.addEventListener("click", scoreList);
     opcLog.addEventListener("click", logIn);
     submit.addEventListener("click", sumbitUser);
 
-
     function scoreList() {
-  
-            // Limpiamos la lista de jugadores antes de mostrarla
-            playerList.innerHTML = '';
-    
-            // Iteramos sobre la lista de jugadores y creamos elementos <li> para cada uno
-            juego.jugadores.forEach(function (player) {
-                const li = document.createElement('li');
-                li.textContent = `Nombre: ${player.nombre} | Máximo puntaje: ${player.maxScore}`;
-                playerList.appendChild(li);
-            });
-            
-            if (juego.jugadores.length > 0) {
-                // Mostramos la lista de jugadores
-                container.style.display = "none";
-                scoreListDiv.style.display = 'flex';
-        
-                // Ocultamos la imagen y el párrafo
-                document.querySelector('.isEmpty').style.display = 'none';
-            } else {
-                // Mostramos la imagen y el párrafo
-                document.querySelector('.isEmpty').style.display = 'block';
-        
-                // Ocultamos la lista de jugadores
-                container.style.display = "none";
-                scoreListDiv.style.display = 'flex';
-            }
+        playerList.innerHTML = '';
+
+        juego.jugadores.forEach(function (player) {
+            const li = document.createElement('li');
+            li.textContent = `Nombre: ${player.nombre} | Máximo puntaje: ${player.maxScore}`;
+            playerList.appendChild(li);
+        });
+
+        if (juego.jugadores.length > 0) {
+            container.style.display = "none";
+            scoreListDiv.style.display = 'flex';
+            document.querySelector('.isEmpty').style.display = 'none';
+        } else {
+            document.querySelector('.isEmpty').style.display = 'block';
+            container.style.display = "none";
+            scoreListDiv.style.display = 'flex';
+        }
     }
     
     
@@ -56,29 +45,29 @@ function mainMenu() {
         usuario.style.display = "flex"
         container.style.display = "none"
     }
-    
-    
-    
 }
 
+const formLog = document.querySelector(".formLog")
 function sumbitUser() {
-    submit.value="registrado!"
+    let pLog = document.querySelector(".pLog")
+    pLog.textContent = "registrado!";
+    formLog.style.display = "none"
     const nombreUsuario = inputUsuario.value;
     juego.agregarJugador(nombreUsuario);
+
+    inputUsuario.value = ''; 
+    usuario.style.display = "flex";
 }
+
 function backToMain() {
     document.querySelector('.container').style.display = 'flex';
-
     document.querySelector('.usuario').style.display = 'none';
     document.getElementById('game').style.display = 'none';
     document.querySelector('.endgame').style.display = 'none';
     document.getElementById('scoreList').style.display = 'none';
     document.querySelector('.singIn').style.display = 'none';
+    formLog.style.display = 'flex';
 };
 
-//funcion para recargar la pagina
-function reiniciarPagina() {
-    window.location.reload();
-}
 
 mainMenu()

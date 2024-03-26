@@ -26,9 +26,12 @@ body {
     padding: 0;
     background-color: #70c5ce; /* Color de fondo inspirado en el cielo de Flappy Bird */
     font-family:'HISKYFLIPPERHI', sans-serif;
+    background-image: url(./img/nubes.gif);
+    /* background-blend-mode: difference; */
+    background-size: cover;
 }
 
-.container , .endgame , .usuario, .singIn{
+.container , .usuario, .singIn, .formLog, .formSingin{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,11 +121,12 @@ h2 {
     align-items: center;
     width: 50vw;
     height: 90vh;
-    border: inset #ffdf86;
-    gap: 70px;
+    border: inset #ffdf86 5px;
+    gap: 10px;
+    min-width: min-content;
 }
 
-#game{
+#game, .endgame{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -152,3 +156,22 @@ p{
     overflow: hidden;
 }
 
+.finalScore{
+    background-color: #8bff5c;
+    width: 40%;
+    height: 20%;
+    border: ridge #ad6d40 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gifAbajo{
+width: 15%;
+}
+
+.pLog{
+    color: red;
+    font-size: 2rem;
+}

@@ -36,39 +36,45 @@
     <section class="usuario" style="display: none;">
         <h2>¿QUIERES REGISTRARTE?</h2>
         <div class="msg2"></div>
-        <h3>Ingrese su nombre de usuario</h3>
-        <label for="userName"></label>
-        <input type="text" name="" id="userName" placeholder="Mr. Jumpy Kiwi">
-        <input type="submit" value="Enviar" class="button" id="submit">
+        <div class="formLog">
+            <h3>Ingrese su nombre de usuario</h3>
+            <label for="userName"></label>
+            <input type="text" name="" id="userName" placeholder="Mr. Jumpy Kiwi">
+            <input type="submit" value="Enviar" class="button" id="submit">
+        </div>
+        <p class="pLog"></p>
         <button class="button" id="returnButton">Volver al menu principal</button>
     </section>
 
     <section class="singIn" style="display: none;">
         <h2>INICIAR SESION</h2>
-        <h3>Ingrese su nombre de usuario</h3>
-        <label for="opcsingIn"></label>
-        <input type="text" name="" id="opcsingIn" placeholder="Mr. Jumpy Kiwi">
-        <input type="submit" value="Enviar" class="button" id="submit2">
-        <button class="button" id="returnButton4">Volver al menu principal</button>
+        <div class="formSingin">
+            <h3>Ingrese su nombre de usuario</h3>
+            <label for="opcsingIn"></label>
+            <input type="text" name="" id="opcsingIn" placeholder="Mr. Jumpy Kiwi">
+            <input type="submit" value="Enviar" class="button" id="submit2">
+        </div>
         <div class="msg"></div>
+        <button class="button" id="returnButton4">Volver al menu principal</button>
     </section>
 
     <section id="game" style="display: none;">
         <h2>Jumpy Kiwis!</h2>
         <img class="imggif" src="./img/bird3.png" alt="pajarito volando">
         <div class="modosPlay">
-        <img class="imggif" src="./img/spacebar.gif" alt="barra espaciadora">
-        <p>Haz click para empezar o utiliza la barra espaciadora</p>
-        <img class="imggif" src="./img/click.gif" alt="mono apretando un mouse">
-       </div>
-       <button class="button" id="returnButton3">Volver al menu principal</button>
+            <img class="imggif" src="./img/spacebar.gif" alt="barra espaciadora">
+            <p>Haz click para empezar o utiliza la barra espaciadora</p>
+            <img class="imggif" src="./img/click.gif" alt="mono apretando un mouse">
+        </div>
+        <button class="button" id="returnButton3">Volver al menu principal</button>
     </section>
 
     <section class="endgame" style="display: none;">
         <h2>Game Over!</h2>
-        <p id="finalScore"></p>
+        <div class="finalScore">
+            <p id="finalScore"></p>
+        </div>
         <button class="button" id="reload">Play Again</button>
-
     </section>
 
     <script src="./score.js"></script>
