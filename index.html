@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,16 +14,62 @@
         <h1>Bienvenido a</h1>
         <h2>Jumpy Kiwis!</h2>
         <div class="imgContainer"></div>
-        <div >
-            <a href="" class="button">START</a>
-            <a href="" class="button">SCORE</a>
+        <div>
+            <button class="button" id="start">START</button>
+            <button class="button" id="score">SCORE</button>
+            <button class="button" id="login">LOG IN</button>
         </div>
     </section>
 
-    <section id="game">
-        <h3>Haz click para empezar o utiliza la barra espaciadora</h3>
+    <section class="container">
+        <div id="scoreList" style="display: none;">
+            <h2>Lista de Jugadores:</h2>
+            <div class="isEmpty">
+                <img src="./img/itsEmpty.gif" alt="meme esta vacio...">
+                <p>ESTA VACIO...</p>
+            </div>
+            <ul id="playerList"></ul>
+            <button class="button" id="returnButton2">Volver al menu principal</button>
+        </div>
     </section>
 
+    <section class="usuario" style="display: none;">
+        <h2>¿QUIERES REGISTRARTE?</h2>
+        <div class="msg2"></div>
+        <h3>Ingrese su nombre de usuario</h3>
+        <label for="userName"></label>
+        <input type="text" name="" id="userName" placeholder="Mr. Jumpy Kiwi">
+        <input type="submit" value="Enviar" class="button" id="submit">
+        <button class="button" id="returnButton">Volver al menu principal</button>
+    </section>
+
+    <section class="singIn" style="display: none;">
+        <h2>INICIAR SESION</h2>
+        <h3>Ingrese su nombre de usuario</h3>
+        <label for="opcsingIn"></label>
+        <input type="text" name="" id="opcsingIn" placeholder="Mr. Jumpy Kiwi">
+        <input type="submit" value="Enviar" class="button" id="submit2">
+        <button class="button" id="returnButton4">Volver al menu principal</button>
+        <div class="msg"></div>
+    </section>
+
+    <section id="game" style="display: none;">
+        <h2>Jumpy Kiwis!</h2>
+        <img class="imggif" src="./img/bird3.png" alt="pajarito volando">
+        <div class="modosPlay">
+        <img class="imggif" src="./img/spacebar.gif" alt="barra espaciadora">
+        <p>Haz click para empezar o utiliza la barra espaciadora</p>
+        <img class="imggif" src="./img/click.gif" alt="mono apretando un mouse">
+       </div>
+       <button class="button" id="returnButton3">Volver al menu principal</button>
+    </section>
+
+    <section class="endgame" style="display: none;">
+        <h2>Game Over!</h2>
+        <p id="finalScore"></p>
+        <button class="button" id="reload">Play Again</button>
+
+    </section>
 
     <script src="./score.js"></script>
     <script src="./juego.js"></script>

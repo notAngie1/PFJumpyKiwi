@@ -24,11 +24,11 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
-    font-family:'HISKYFLIPPERHI', sans-serif;
     background-color: #70c5ce; /* Color de fondo inspirado en el cielo de Flappy Bird */
+    font-family:'HISKYFLIPPERHI', sans-serif;
 }
 
-.container {
+.container , .endgame , .usuario, .singIn{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,6 +47,11 @@ h2 {
     font-family: 'Nabla', sans-serif;
     font-size: 6rem;
  }
+ 
+ h3{
+    font-family:'HISKYFLIPPERHI', sans-serif;
+    font-size: 2rem;
+ }
 
 .button {
     display: inline-block;
@@ -60,10 +65,15 @@ h2 {
     border-radius: 12px;
     border: none;
     transition: background-color 0.3s ease;
+    font-family:'HISKYFLIPPERHI', sans-serif;
 }
 
 .button:hover {
     background-color: #45a049; /* Cambio de color al pasar el cursor sobre el botón */
+}
+
+.button:active {
+    border: solid black;
 }
 
 .imgContainer {
@@ -85,3 +95,60 @@ h2 {
         background-image: url('img/bird1.png'); /* Imagen al final de la animación */
     }
 }
+
+#userName , #opcsingIn{
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    background-color: rgb(255 235 110 / 60%);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family:'HISKYFLIPPERHI', sans-serif;
+}
+
+#scoreList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 90vh;
+    border: inset #ffdf86;
+    gap: 70px;
+}
+
+#game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 90vh;
+    border: inset #ffdf86;
+    text-align: center;
+}
+
+.modosPlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 0 10px;
+    overflow:hidden;
+}
+
+p{
+    text-align: center;
+    margin: 0px 10px 0 10px;
+}
+
+.imggif{
+    width: 40%;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
