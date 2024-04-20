@@ -1,37 +1,14 @@
-
-class Juego {
-    constructor() {
-        this.jugadores = []
-        this.jugadorActual = null
-    }
-
-
-    agregarJugador(nombre) {
-        if (nombre) {
-            const nuevoJugador = new Jugador(nombre);
-            this.jugadores.push(nuevoJugador);
-            this.guardarJugadores();
-        } else {
-            alert("El nombre de usuario es inválido.");
-        }
-    }
-
-    guardarJugadores() {
-        localStorage.setItem('jugadores', JSON.stringify(this.jugadores));
-    }
-}
-
 function mainGame() {
     document.querySelector('.container').style.display = 'none';
     document.getElementById('scoreList').style.display = 'none';
     document.getElementById('returnButton4').addEventListener('click', backToMain)
-    const endofGame = document.querySelector('.endgame')
     const singIn = document.querySelector(".singIn")
     const msg = document.querySelector(".msg")
     const msg2 = document.querySelector(".msg2")
     const usuario = document.querySelector('.usuario')
     const submit2 = document.getElementById("submit2")
     const sectionGame = document.getElementById('game')
+    const sectionPlayMain = document.getElementById("playMain")
 
     singIn.style.display = "flex";
 
@@ -81,19 +58,85 @@ function mainGame() {
 
     sectionGame.addEventListener("click", playGame)
 
+
     function playGame() {
-        sectionGame.style.display = "none"
-        endofGame.style.display = "flex"
-        endGame()
+        sectionGame.style.display = "none";
+        sectionPlayMain.style.display = "block";
+        let obstaculo = document.getElementById("obstaculo");
+        let espacio = document.getElementById("espacio");
+        let bird = document.getElementById("kiwibird");
+        let saltarBird = 0;
+        let contador = 0;
+
+
+        espacio.addEventListener("animationiteration", () => {
+            let random = -((Math.random() * 600) + 200);
+            espacio.style.top = random + "px";
+            contador++;
+
+        });
+
+        setInterval(function () {
+            let birdTop = parseInt(window.getComputedStyle(bird).getPropertyValue("top"));
+            if (saltarBird == 0) {
+                bird.style.top = (birdTop + 3) + "px";
+            }
+            let obstaculoLeft = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"));
+            let espacioTop = parseInt(window.getComputedStyle(espacio).getPropertyValue("top"));
+            let cTop = -(750-birdTop);
+            if((birdTop>750)||((obstaculoLeft<50)&&(obstaculoLeft>-50)&&((cTop<espacioTop)||(cTop>espacioTop+150)))){
+                console.log("Colisión con el obstáculo");
+                endGame();
+            }
+
+            // Actualizar el puntaje máximo del jugador
+            if (juego.jugadorActual) {
+                juego.jugadorActual.currentScore = contador;
+                if (contador > juego.jugadorActual.maxScore) {
+                    juego.jugadorActual.maxScore = contador;
+                }
+            }
+        }, 10);
+
+
+    sectionPlayMain.addEventListener("click", saltar)
+    document.addEventListener("keydown", function (event) {
+        if (event.code === "Space") {
+            saltar();
+
+        }
+    });
+
+    function saltar() {
+        saltarBird = 1;
+        let saltarcont = 0;
+        let saltarIntervalo = setInterval(function () {
+            let birdTop = parseInt(window.getComputedStyle(bird).getPropertyValue("top"));
+            if ((birdTop > 6) && (saltarcont < 15)) {
+                bird.style.top = (birdTop - 3) + "px";
+            }
+            if (saltarcont > 50) {
+                clearInterval(saltarIntervalo);
+                saltarBird = 0;
+                saltarcont = 0;
+            }
+            saltarcont++;
+        }, 10);
+
     }
 
 }
 
+}
 
 
 function endGame() {
+    const endofGame = document.querySelector('.endgame')
     const opcReload = document.querySelector("#reload");
     const finalScore = document.getElementById("finalScore");
+    const sectionPlayMain = document.getElementById("playMain");
+    endofGame.style.display = "flex"
+    sectionPlayMain.style.display = "none"
 
     finalScore.innerHTML = '';
 
@@ -113,3 +156,4 @@ function endGame() {
 function reiniciarPagina() {
     window.location.reload();
 }
+

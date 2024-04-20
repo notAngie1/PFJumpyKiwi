@@ -7,16 +7,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
-  }
-  
-  img {
+}
+
+img {
     max-width: 100%;
-  }
-  
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -24,14 +24,18 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
-    background-color: #70c5ce; /* Color de fondo inspirado en el cielo de Flappy Bird */
-    font-family:'HISKYFLIPPERHI', sans-serif;
+    background-color: #70c5ce;
+    font-family: 'HISKYFLIPPERHI', sans-serif;
     background-image: url(./img/nubes.gif);
-    /* background-blend-mode: difference; */
+
     background-size: cover;
 }
 
-.container , .usuario, .singIn, .formLog, .formSingin{
+.container,
+.usuario,
+.singIn,
+.formLog,
+.formSingin {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,16 +53,16 @@ h1 {
 h2 {
     font-family: 'Nabla', sans-serif;
     font-size: 6rem;
- }
- 
- h3{
-    font-family:'HISKYFLIPPERHI', sans-serif;
+}
+
+h3 {
+    font-family: 'HISKYFLIPPERHI', sans-serif;
     font-size: 2rem;
- }
+}
 
 .button {
     display: inline-block;
-    background-color: #4CAF50; /* Color de fondo verde para el botón */
+    background-color: #4CAF50;
     color: white;
     padding: 20px 40px;
     text-align: center;
@@ -68,11 +72,11 @@ h2 {
     border-radius: 12px;
     border: none;
     transition: background-color 0.3s ease;
-    font-family:'HISKYFLIPPERHI', sans-serif;
+    font-family: 'HISKYFLIPPERHI', sans-serif;
 }
 
 .button:hover {
-    background-color: #45a049; /* Cambio de color al pasar el cursor sobre el botón */
+    background-color: #45a049;
 }
 
 .button:active {
@@ -80,26 +84,29 @@ h2 {
 }
 
 .imgContainer {
-    width: 150px; /* Ancho de la imagen */
-    height: 150px; /* Alto de la imagen */
-    background-image: url('img/bird1.png'); /* Imagen inicial */
+    width: 150px;
+    height: 150px;
+    background-image: url('img/bird1.png');
     background-size: cover;
-    animation: animacion-imagen 0.8s infinite; /* Duración de la animación y repetición infinita */
+    animation: animacion-imagen 0.8s infinite;
 }
 
 @keyframes animacion-imagen {
     0% {
-        background-image: url('img/bird1.png'); /* Imagen inicial */
+        background-image: url('img/bird1.png');
     }
+
     50% {
-        background-image: url('img/bird2.png'); /* Imagen a mitad de la animación */
+        background-image: url('img/bird2.png');
     }
+
     100% {
-        background-image: url('img/bird1.png'); /* Imagen al final de la animación */
+        background-image: url('img/bird1.png');
     }
 }
 
-#userName , #opcsingIn{
+#userName,
+#opcsingIn {
     margin: 10px;
     padding: 20px;
     display: flex;
@@ -111,10 +118,10 @@ h2 {
     text-align: center;
     font-weight: bold;
     font-size: 1rem;
-    font-family:'HISKYFLIPPERHI', sans-serif;
+    font-family: 'HISKYFLIPPERHI', sans-serif;
 }
 
-#scoreList{
+#scoreList {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,7 +133,8 @@ h2 {
     min-width: min-content;
 }
 
-#game, .endgame{
+#game,
+.endgame {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,26 +145,26 @@ h2 {
     text-align: center;
 }
 
-.modosPlay{
+.modosPlay {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0px 10px 0 10px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-p{
+p {
     text-align: center;
     margin: 0px 10px 0 10px;
 }
 
-.imggif{
+.imggif {
     width: 40%;
     border-radius: 100%;
     overflow: hidden;
 }
 
-.finalScore{
+.finalScore {
     background-color: #8bff5c;
     width: 40%;
     height: 20%;
@@ -167,11 +175,75 @@ p{
     align-items: center;
 }
 
-.gifAbajo{
-width: 15%;
+.gifAbajo {
+    width: 15%;
 }
 
-.pLog{
+.pLog {
     color: red;
     font-size: 2rem;
+}
+
+#playMain {
+    width: 600px;
+    height: 800px;
+    border: inset #ffdf86;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+}
+
+
+#obstaculo {
+    width: 50px;
+    height: 800px;
+    background-image: url(./img/arbol.png);
+    background-color: #513b2d;
+    position: relative;
+    left: 600px;
+    animation: obstaculo 2s infinite linear;
+}
+
+@keyframes obstaculo {
+    0% {
+        left: 600px
+    }
+
+    100% {
+        left: -50px
+    }
+}
+
+#espacio {
+    width: 50px;
+    height: 200px;
+    background-color: #8ed2f4;
+    position: relative;
+    left: 600px;
+    top: -800px;
+    animation: obstaculo 2s infinite linear;
+}
+
+#kiwibird {
+  background-image: url(./img/kiwivol.png);
+    width: 50px;
+    height: 50px; 
+    position: absolute;
+    top: 100px;
+    border-radius: 50%;
+    animation: animacion-kiwi 0.8s infinite;
+}
+
+@keyframes animacion-kiwi {
+    0% {
+        background-image: url('img/kiwivol.png');
+    }
+
+    50% {
+        background-image: url('img/kiwivol1.png');
+    }
+
+    100% {
+        background-image: url('img/kiwivol.png');
+    }
 }
