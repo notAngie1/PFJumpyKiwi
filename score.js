@@ -9,13 +9,26 @@ class Jugador {
 
 class Juego {
     constructor() {
-        this.jugadores = []
+        this.jugadores = JSON.parse(localStorage.getItem('jugadores')) || [];
         this.jugadorActual = null
     }
 
 
     agregarJugador(nombre) {
         if (nombre) {
+
+            if (this.jugadores.find(jugador => jugador.nombre === nombre)) {
+                Swal.fire({
+                    title: "NOMBRE DE USUARIO DUPLICADO",
+                    text: "El nombre de usuario ya existe. Por favor, elija otro.",
+                    imageUrl: "https://media.tenor.com/3pX4U3Jk24MAAAAi/popato-cute.gif",
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: "imagen de error",
+                    confirmButtonColor: "#45a049"
+                });
+                return;
+            }
             const nuevoJugador = new Jugador(nombre);
             this.jugadores.push(nuevoJugador);
             this.guardarJugadores();
@@ -28,7 +41,7 @@ class Juego {
                 imageHeight: 200,
                 imageAlt: "imagen de error",
                 confirmButtonColor: "#45a049"
-              });
+            });
         }
     }
 
@@ -36,12 +49,30 @@ class Juego {
         localStorage.setItem('jugadores', JSON.stringify(this.jugadores));
     }
 
-    async obtenerUsuariosRandom() {
-        const response = await fetch('https://randomuser.me/api/?results=5');
+    async obtenerJugadoresRandom() {
+        const response = await fetch('https://randomuser.me/api/?results=3');
         const data = await response.json();
-        const usuarios = data.results.map(user => user.name.first);
-        return usuarios;
+        const jugadoresRandom = data.results.map(result => {
+            const nombre = `${result.name.first} ${result.name.last}`;
+            const jugador = new Jugador(nombre);
+            jugador.maxScore = Math.floor(Math.random() * (500 - 100 + 1));
+            return jugador;
+        });
+    
+        jugadoresRandom.forEach(jugador => {
+            if (!this.jugadores.find(j => j.nombre === jugador.nombre)) {
+                this.jugadores.push(jugador);
+            }
+        });
+        this.guardarJugadores();
+    }
+
+    actualizarMaxScores() {
+        this.jugadores.forEach(jugador => {
+            if (jugador.currentScore > jugador.maxScore) {
+                jugador.maxScore = jugador.currentScore;
+            }
+        });
+        this.guardarJugadores();
     }
 }
-
-    

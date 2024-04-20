@@ -79,11 +79,11 @@ function mainGame() {
         setInterval(function () {
             let birdTop = parseInt(window.getComputedStyle(bird).getPropertyValue("top"));
             if (saltarBird == 0) {
-                bird.style.top = (birdTop + 3) + "px";
+                bird.style.top = (birdTop + 2) + "px";
             }
             let obstaculoLeft = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"));
             let espacioTop = parseInt(window.getComputedStyle(espacio).getPropertyValue("top"));
-            let cTop = -(750-birdTop);
+            let cTop = -(800-birdTop);
             if((birdTop>750)||((obstaculoLeft<50)&&(obstaculoLeft>-50)&&((cTop<espacioTop)||(cTop>espacioTop+150)))){
                 console.log("Colisión con el obstáculo");
                 endGame();
@@ -113,7 +113,7 @@ function mainGame() {
         let saltarIntervalo = setInterval(function () {
             let birdTop = parseInt(window.getComputedStyle(bird).getPropertyValue("top"));
             if ((birdTop > 6) && (saltarcont < 15)) {
-                bird.style.top = (birdTop - 3) + "px";
+                bird.style.top = (birdTop - 2) + "px";
             }
             if (saltarcont > 50) {
                 clearInterval(saltarIntervalo);
@@ -147,6 +147,8 @@ function endGame() {
                         Máximo puntaje: ${jugadorActual.maxScore}
                         Puntaje actual: ${jugadorActual.currentScore}`;
     finalScore.appendChild(user);
+
+    juego.guardarJugadores();
 
     opcReload.addEventListener("click", reiniciarPagina);
 }

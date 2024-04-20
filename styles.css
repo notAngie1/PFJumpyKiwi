@@ -131,6 +131,7 @@ h3 {
     border: inset #ffdf86 5px;
     gap: 10px;
     min-width: min-content;
+    overflow: overlay;
 }
 
 #game,
