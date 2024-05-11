@@ -10,17 +10,15 @@
 </head>
 
 <body>
-    <section class="container">
+    <section class="container" style="display: none;">
         <h1>Bienvenido a</h1>
         <h2>Jumpy Kiwis!</h2>
         <div class="imgContainer"></div>
         <div>
             <button class="button" id="start">START</button>
-            <button class="button" id="score">SCORE</button>
-            <button class="button" id="login">LOG IN</button>
         </div>
     </section>
-
+    
     <section class="container">
         <div id="scoreList" style="display: none;">
             <h2>Lista de Jugadores:</h2>
@@ -32,7 +30,7 @@
             <button class="button" id="returnButton2">Volver al menu principal</button>
         </div>
     </section>
-
+    
     <section class="usuario" style="display: none;">
         <h2>¿QUIERES REGISTRARTE?</h2>
         <div class="msg2"></div>
@@ -45,7 +43,7 @@
         <p class="pLog"></p>
         <button class="button" id="returnButton">Volver al menu principal</button>
     </section>
-
+    
     <section class="singIn" style="display: none;">
         <h2>INICIAR SESION</h2>
         <div class="formSingin">
@@ -57,7 +55,7 @@
         <div class="msg"></div>
         <button class="button" id="returnButton4">Volver al menu principal</button>
     </section>
-
+    
     <section>
         <div id="game" style="display: none;">
             <h2>Jumpy Kiwis!</h2>
@@ -75,16 +73,19 @@
             <div id="kiwibird"></div>
         </div>
     </section>
-
+    
     <section class="endgame" style="display: none;">
         <h2>Game Over!</h2>
         <div class="finalScore">
             <p id="finalScore"></p>
         </div>
         <button class="button" id="reload">Play Again</button>
+        <button class="button" id="score">SCORES</button>
+        <button class="button" id="login">Registrarse con otro usuario?</button>
+        <button class="button" id="returnButton5">Volver al menu principal</button>
     </section>
-
-
+    
+    
     <!-- librerias -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- archivos js -->

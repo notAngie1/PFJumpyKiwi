@@ -13,6 +13,8 @@ const backMain2 = document.getElementById('returnButton2').addEventListener('cli
 const backMain3 = document.getElementById('returnButton3').addEventListener('click', backToMain)
 let juego = new Juego()
 
+usuario.style.display = "none"
+container.style.display = "flex"
 
 
 async function mainMenu() {
@@ -25,11 +27,12 @@ async function mainMenu() {
     await juego.obtenerJugadoresRandom();
 
     function scoreList() {
+        endofGame.style.display = "none"
         playerList.innerHTML = '';
 
         juego.actualizarMaxScores();
 
-        juego.jugadores.forEach(function (nombre) {
+        juego.jugadores.forEach(nombre => {
             const li = document.createElement('li');
             li.textContent = `Nombre: ${nombre.nombre} | Máximo puntaje: ${nombre.maxScore}`;
             playerList.appendChild(li);
@@ -46,14 +49,12 @@ async function mainMenu() {
             scoreListDiv.style.display = 'flex';
         }
     }
+}
 
-
-    function logIn() {
-        usuario.style.display = "flex"
-        container.style.display = "none"
-    }
-
-
+function logIn() {
+    usuario.style.display = "flex"
+    container.style.display = "none"
+    endofGame.style.display = "none"
 }
 
 const formLog = document.querySelector(".formLog")
@@ -68,13 +69,15 @@ function sumbitUser() {
     usuario.style.display = "flex";
 }
 
-function backToMain() {
+function backToMain(event) {
+    event.preventDefault();
     document.querySelector('.container').style.display = 'flex';
     document.querySelector('.usuario').style.display = 'none';
     document.getElementById('game').style.display = 'none';
     document.querySelector('.endgame').style.display = 'none';
     document.getElementById('scoreList').style.display = 'none';
     document.querySelector('.singIn').style.display = 'none';
+    document.getElementById("playMain").style.display = "none";
     formLog.style.display = 'flex';
 };
 

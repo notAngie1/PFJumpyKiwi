@@ -14,7 +14,7 @@ class Juego {
     }
 
 
-    agregarJugador(nombre) {
+    agregarJugador = nombre => {
         if (nombre) {
 
             if (this.jugadores.find(jugador => jugador.nombre === nombre)) {
@@ -45,7 +45,7 @@ class Juego {
         }
     }
 
-    guardarJugadores() {
+    guardarJugadores = () => {
         localStorage.setItem('jugadores', JSON.stringify(this.jugadores));
     }
 
@@ -67,7 +67,7 @@ class Juego {
         this.guardarJugadores();
     }
 
-    actualizarMaxScores() {
+    actualizarMaxScores = () => {
         this.jugadores.forEach(jugador => {
             if (jugador.currentScore > jugador.maxScore) {
                 jugador.maxScore = jugador.currentScore;
